@@ -1,0 +1,42 @@
+# OreSentinel Configuration File
+
+# Internal data tracker to prevent spamming the Discord changelog on every server restart. Do not manually edit.
+last-announced-version: "0.0.0"
+
+# The Discord Webhook URL where alerts and changelogs will be sent.
+webhook-url: "YOUR_WEBHOOK_URL_HERE"
+
+# The time window (in milliseconds) to track mining speeds for alerts.
+check-interval-milliseconds: 60000
+
+# Anti-Spam protection: Cooldown (in seconds) applied to a player after an alert triggers.
+alert-cooldown-seconds: 30
+
+# Enable or disable real-time alerts in the game chat for online staff members.
+enable-staff-chat-alerts: true
+
+# Changelog data sent to Discord when the plugin version updates.
+changelog:
+  previous-version:
+    version: "1.0-SNAPSHOT"
+    changes:
+      - "Added custom ore support via NamespacedKeys."
+      - "Implemented persistent player-placed block protection."
+      - "Added SQLite database for mining history logging."
+  current-version:
+    changes:
+      - "Officially released version 1.0.0!"
+      - "Added Exact Millisecond precision tracking for bot detection."
+      - "Added Average Light Level checks to catch X-rayers."
+      - "Added dynamic Discord webhook colors based on mining speed."
+      - "Added oresentinel.exempt permission node."
+
+# List of ores to monitor.
+monitored-ores:
+  "minecraft:diamond_ore": 15
+  "minecraft:deepslate_diamond_ore": 15
+  "minecraft:ancient_debris": 10
+  "minecraft:emerald_ore": 20
+  "minecraft:deepslate_emerald_ore": 20
+  "pixelmon:ruby_ore": 12
+  "pixelmon:sapphire_ore": 12

@@ -1,0 +1,21 @@
+name: OreSentinel
+version: 1.0.0
+main: me.dhanraj.oresentinel.OreSentinel
+api-version: '1.21'
+description: Comprehensive monitoring plugin tracking standard and custom modded ores with database history and Y-level verification.
+commands:
+  oresentinel:
+    description: Main command for OreSentinel.
+    aliases: [os]
+    permission: oresentinel.admin
+    permission-message: "You do not have permission to use this command."
+permissions:
+  oresentinel.alerts:
+    description: Grants staff access to see real-time in-game suspicious mining notifications.
+    default: op
+  oresentinel.admin:
+    description: Allows reloading the config and checking player mining history.
+    default: op
+  oresentinel.exempt:
+    description: Exempts admins or builders from triggering OreSentinel alerts.
+    default: false
