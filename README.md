@@ -1,5 +1,7 @@
 # 🚨 OreSentinel [v1.0.0]
 
+[![Build and Release OreSentinel](https://github.com/HydentDhan/OreSentinel/actions/workflows/build.yml/badge.svg)](https://github.com/HydentDhan/OreSentinel/actions/workflows/build.yml)
+
 A lightweight, enterprise-grade anti-xray and suspicious mining activity monitor for Minecraft 1.21.1 servers. Built native for hybrid platforms, it seamlessly tracks standard vanilla blocks alongside custom modded ores (e.g., Pixelmon, IndustrialCraft, or TechReborn) using high-resolution millisecond tracking, Y-level profiling, and light level verification.
 
 ---
@@ -46,5 +48,3 @@ monitored-ores:
   "minecraft:ancient_debris": 10
   "minecraft:emerald_ore": 20
   "pixelmon:sapphire_ore": 12
-  "pixelmon:ruby_ore": 12
-  "pixelmon:crystal_ore": 10

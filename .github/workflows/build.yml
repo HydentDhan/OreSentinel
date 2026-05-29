@@ -1,14 +1,17 @@
-name: Build OreSentinel
+name: Build and Release OreSentinel
 
 on:
   push:
     branches: [ "main" ]
+    tags: [ "v*.*.*" ] # Triggers the release when you push a tag like v1.0.0
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # This permission is strictly required for the bot to create a Release page
 
     steps:
       - name: Checkout Code
@@ -24,8 +27,17 @@ jobs:
       - name: Compile Plugin using Maven
         run: mvn clean package
 
-      - name: Upload Built JAR
+      - name: Upload Temporary Build Artifact (For regular pushes)
         uses: actions/upload-artifact@v4
         with:
-          name: OreSentinel-Release
+          name: OreSentinel-Snapshot
           path: target/OreSentinel-*.jar
+
+      - name: Create Permanent GitHub Release (For Tag pushes only)
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: target/OreSentinel-*.jar
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
